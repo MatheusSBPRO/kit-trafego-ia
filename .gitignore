@@ -1,0 +1,10 @@
+.env
+*.env
+!.env.exemplo
+clientes.json
+*.ids.json
+plano*.json
+!plano.exemplo.json
+criativos/
+.DS_Store
+__pycache__/
