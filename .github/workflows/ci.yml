@@ -18,9 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python }}
+      # O runner novo não traz mais o Python 3.9 pelo setup-python; o uv instala
+      # qualquer versão. O 3.9 fica porque é o Python que vem no macOS.
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Python ${{ matrix.python }}
+        run: |
+          uv python install ${{ matrix.python }}
+          uv venv --seed --python ${{ matrix.python }} /tmp/py
+          echo "/tmp/py/bin" >> "$GITHUB_PATH"
+          /tmp/py/bin/python --version
 
       - name: Varredura de dado sensível
         run: python testes/varredura.py
