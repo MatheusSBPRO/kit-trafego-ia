@@ -1,0 +1,63 @@
+name: Publicar no PyPI
+
+# Publica quando sai uma release no GitHub (tag vX.Y.Z), pelo trusted publisher do PyPI:
+# não existe token guardado no repositório. A conta do PyPI precisa ter o publisher
+# cadastrado com: dono MatheusSBPRO, repositório kit-trafego-ia, workflow publicar.yml,
+# ambiente pypi.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  montar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Varredura de dado sensível
+        run: python3 testes/varredura.py
+
+      - name: A versão do pacote bate com a tag
+        if: github.event_name == 'release'
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          VERSAO=$(python3 -c "import re, pathlib; print(re.search(r'__version__\s*=\s*\"([^\"]+)\"', pathlib.Path('src/kit_trafego_ia/__init__.py').read_text()).group(1))")
+          echo "tag=$TAG versão=$VERSAO"
+          test "${TAG#v}" = "$VERSAO"
+
+      - name: Monta o pacote (sdist e wheel)
+        run: uv build
+
+      - name: Servidor MCP (wheel instalado num ambiente limpo)
+        run: |
+          uv venv /tmp/kit
+          uv pip install --python /tmp/kit/bin/python dist/*.whl
+          cd /tmp && python3 "$GITHUB_WORKSPACE/testes/testar_mcp.py" /tmp/kit/bin/kit-trafego-ia
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publicar:
+    needs: montar
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/kit-trafego-ia
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
