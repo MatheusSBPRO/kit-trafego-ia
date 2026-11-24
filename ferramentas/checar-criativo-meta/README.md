@@ -58,8 +58,8 @@ imagem sem a transcrição da arte, por exemplo) sai como **PENDENTE**.
 ### Claude Code
 
 ```bash
-git clone https://github.com/MatheusSBPRO/checar-criativo-meta.git
-cd checar-criativo-meta
+git clone https://github.com/MatheusSBPRO/kit-trafego-ia.git
+cd kit-trafego-ia/ferramentas/checar-criativo-meta
 ./instalar.sh --global
 ```
 

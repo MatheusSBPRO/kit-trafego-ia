@@ -28,8 +28,8 @@ sistema → Gerar token, com `ads_management`, `ads_read`, `business_management`
 e `pages_read_engagement`. O app do token precisa estar em modo **Live**.
 
 ```bash
-git clone https://github.com/MatheusSBPRO/subir-campanha-meta
-cd subir-campanha-meta
+git clone https://github.com/MatheusSBPRO/kit-trafego-ia.git
+cd kit-trafego-ia/ferramentas/subir-campanha-meta
 mkdir -p ~/.claude/agents ~/.claude/skills
 cp agents/subidor-campanha.md ~/.claude/agents/
 cp -R skills/subidor-campanha ~/.claude/skills/

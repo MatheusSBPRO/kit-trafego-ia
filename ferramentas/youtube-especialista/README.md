@@ -27,12 +27,14 @@ Requisitos: Claude Code, Node 18+, Python 3.10+, `ffmpeg` e `yt-dlp`. Você tamb
 Google com acesso ao canal pelo Studio, como dono ou Administrador.
 
 ```bash
-git clone https://github.com/MatheusSBPRO/youtube-especialista ~/.claude/skills/youtube-especialista
-cd ~/.claude/skills/youtube-especialista/scripts
-npm install && npx playwright install chromium
-cp config.example.json config.json   # preencha canal, palavras, links e horário
-node entrar.mjs                      # abre o navegador: faça login 1 vez na conta que gerencia o canal
+git clone https://github.com/MatheusSBPRO/kit-trafego-ia.git
+cd kit-trafego-ia
+./instalar.sh --global youtube-especialista
 ```
+
+Os scripts de automação do Studio citados no método (`scripts/`: login, fila de Shorts, robô de
+comentários, análise e agendamento) ainda não foram publicados neste repositório. O método, as
+referências e os templates funcionam sem eles; onde o texto cita um script, faça o passo pelo Studio.
 
 Depois, no Claude Code:
 
@@ -40,8 +42,7 @@ Depois, no Claude Code:
 Usa a skill youtube-especialista e faz o diagnóstico do canal do meu expert
 ```
 
-A partir daí ele segue as fases do `SKILL.md`. Os comandos de cada script estão em
-`scripts/README.md`.
+A partir daí ele segue as fases do `SKILL.md`.
 
 ## O que tem aqui
 
@@ -51,7 +52,7 @@ A partir daí ele segue as fases do `SKILL.md`. Os comandos de cada script estã
 | `references/` | Shorts de Reels, palavra no comentário, Shorts na captação, identidade do canal, vídeo longo, leitura |
 | `metodo/` | o método do vídeo longo, com as fontes (doc oficial do YouTube, Paddy Galloway, Colin and Samir, Film Booth e outros) |
 | `templates/` | ficha de oportunidade, roteiro, checklist de edição, pacote de publicação, análise pós-publicação |
-| `scripts/` | login, fila de Shorts, robô de comentários, análise do Studio e agendamento |
+| `scripts/` | (ainda não publicado) login, fila de Shorts, robô de comentários, análise do Studio e agendamento |
 
 ## Avisos
 

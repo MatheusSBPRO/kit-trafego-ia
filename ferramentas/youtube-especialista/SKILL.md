@@ -21,7 +21,8 @@ Reels gravados para o Instagram e um canal parado. Os números abaixo são do St
 
 O método do vídeo longo fica em `metodo/` (pesquisa, pauta, título e miniatura, roteiro, edição, revisão
 e leitura). Cada regra traz a fonte marcada como [OFICIAL], [RELATO], [OBSERVAÇÃO] ou [HIPÓTESE]. Os
-scripts que rodam no Studio ficam em `scripts/`.
+scripts que rodam no Studio (`scripts/`) ainda não foram publicados: onde o método citar um script,
+faça o passo à mão pelo Studio.
 
 ---
 

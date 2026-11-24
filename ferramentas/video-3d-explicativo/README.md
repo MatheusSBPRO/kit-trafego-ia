@@ -34,8 +34,8 @@ roteiro.txt -> narração (fish.audio ou ElevenLabs) -> corte de pausas -> whisp
 ## Instalar
 
 ```bash
-git clone https://github.com/MatheusSBPRO/video-3d-explicativo.git
-cd video-3d-explicativo
+git clone https://github.com/MatheusSBPRO/kit-trafego-ia.git
+cd kit-trafego-ia/ferramentas/video-3d-explicativo
 ./instalar.sh            # confere o ambiente; a skill já vale ao rodar `claude` ou `codex` nesta pasta
 ./instalar.sh --global   # copia a skill para ~/.claude/skills (e ~/.codex/skills), vale em qualquer pasta
 ```

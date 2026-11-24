@@ -14,8 +14,8 @@ a conversa até a venda. Quando não sabe ou o caso é delicado, ela passa para 
    (`npm install -g @openai/codex`) instalado e logado.
 2. Baixe este repositório:
    ```
-   git clone https://github.com/MatheusSBPRO/ia-whatsapp-atendimento.git
-   cd ia-whatsapp-atendimento
+   git clone https://github.com/MatheusSBPRO/kit-trafego-ia.git
+   cd kit-trafego-ia/ferramentas/ia-whatsapp-atendimento
    ```
 3. Abra o Claude (`claude`) ou o Codex (`codex`) dentro da pasta e fale:
 
