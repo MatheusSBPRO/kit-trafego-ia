@@ -1,0 +1,10 @@
+{
+  "name": "video-3d-explicativo-modelo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cena 3D (three.js) renderizada quadro a quadro pelo Playwright",
+  "dependencies": {
+    "playwright": "^1.49.1",
+    "three": "^0.170.0"
+  }
+}

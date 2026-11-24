@@ -1,0 +1,12 @@
+node_modules/
+package-lock.json
+*.wav
+*.mp3
+*.mp4
+prev_*.jpg
+whisper.json
+tempos.js
+sfx.json
+.DS_Store
+.env
+*.env
