@@ -1,0 +1,50 @@
+name: Algo não funciona
+description: Erro, instalação que quebrou ou resultado errado em uma das ferramentas.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de enviar: tire token, ID de conta (act_), telefone, nome de cliente e caminho do seu computador de tudo o que colar aqui. Troque por zeros ou por "xxx".
+  - type: dropdown
+    id: ferramenta
+    attributes:
+      label: Ferramenta
+      options:
+        - subir-campanha-meta
+        - checar-criativo-meta
+        - ia-whatsapp-atendimento
+        - video-3d-explicativo
+        - youtube-especialista
+        - servidor MCP (kit-trafego-ia)
+        - instalar.sh da raiz
+    validations:
+      required: true
+  - type: textarea
+    id: o-que-fez
+    attributes:
+      label: O que você fez
+      description: O comando ou o pedido ao Claude Code / Codex, passo a passo.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que esperava e o que aconteceu
+      description: Cole a mensagem de erro inteira, sem dado sensível.
+    validations:
+      required: true
+  - type: input
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: Sistema, versão do Python e se usa Claude Code ou Codex.
+      placeholder: "macOS 15, Python 3.12, Claude Code"
+  - type: checkboxes
+    id: sem-dado
+    attributes:
+      label: Conferência
+      options:
+        - label: Tirei token, ID de conta, telefone, dado de cliente e caminho do meu computador do que colei.
+          required: true

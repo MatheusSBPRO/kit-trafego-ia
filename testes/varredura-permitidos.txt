@@ -1,0 +1,10 @@
+# Ocorrências legítimas que a varredura deixa passar. Formato: caminho :: linha exata (sem espaço nas pontas).
+# Linha nova aqui precisa de explicação no PR.
+
+# Regra escrita no CONTRIBUTING, com um exemplo de caminho a evitar.
+CONTRIBUTING.md :: - caminho do seu computador, como /Users/seu-nome ou /home/seu-nome. Use `~/` ou caminho relativo.
+
+# Filtro de SQL da IA de WhatsApp: tira grupos (@g.us) da lista de conversas. Não é ID de ninguém.
+ferramentas/ia-whatsapp-atendimento/agente.py :: INDIVIDUAL = ("chat_jid NOT LIKE '%@g.us' AND chat_jid NOT LIKE '%@newsletter' "
+ferramentas/ia-whatsapp-atendimento/AGENTS.md :: WHERE chat_jid NOT LIKE '%@g.us' AND content <> ''
+ferramentas/ia-whatsapp-atendimento/CLAUDE.md :: WHERE chat_jid NOT LIKE '%@g.us' AND content <> ''

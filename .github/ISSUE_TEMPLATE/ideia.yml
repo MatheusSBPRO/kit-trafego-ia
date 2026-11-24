@@ -1,0 +1,34 @@
+name: Ferramenta nova ou ideia
+description: Sugestão de melhoria, termo novo para o checar-criativo ou uma ferramenta que falta no kit.
+title: "[ideia] "
+labels: ["ideia"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Que problema do dia a dia isso resolve
+      description: Conte o caso real (sem dado de cliente). Ex.: "anúncio de clínica reprovado por 'antes e depois'".
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: O que você propõe
+      description: Como funcionaria e em qual pasta mexeria, se souber.
+    validations:
+      required: true
+  - type: dropdown
+    id: quem-faz
+    attributes:
+      label: Você quer fazer?
+      options:
+        - Sim, eu abro o PR
+        - Posso ajudar a testar
+        - Só a ideia, por enquanto
+  - type: checkboxes
+    id: sem-dado
+    attributes:
+      label: Conferência
+      options:
+        - label: Não colei dado de cliente, ID de conta, token ou telefone.
+          required: true

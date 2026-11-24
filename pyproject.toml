@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kit-trafego-ia"
+dynamic = ["version"]
+description = "Servidor MCP para gestor de tráfego: checa criativo contra a política da Meta, simula e sobe campanha pausada. Para Claude Code e Codex."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Matheus Fernandes" }]
+keywords = ["mcp", "meta-ads", "facebook-ads", "trafego-pago", "claude-code", "codex", "marketing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Other Audience",
+    "Natural Language :: Portuguese (Brazilian)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/MatheusSBPRO/kit-trafego-ia"
+Repository = "https://github.com/MatheusSBPRO/kit-trafego-ia"
+Issues = "https://github.com/MatheusSBPRO/kit-trafego-ia/issues"
+Documentation = "https://github.com/MatheusSBPRO/kit-trafego-ia#readme"
+
+[project.scripts]
+kit-trafego-ia = "kit_trafego_ia.servidor:main"
+
+[tool.hatch.version]
+path = "src/kit_trafego_ia/__init__.py"
+
+# Fonte única: os scripts das ferramentas entram no pacote pelo build, sem cópia no repositório.
+[tool.hatch.build.targets.wheel]
+packages = ["src/kit_trafego_ia"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"ferramentas/subir-campanha-meta/skills/subidor-campanha/scripts/meta_subir.py" = "kit_trafego_ia/_ferramentas/meta_subir.py"
+"ferramentas/checar-criativo-meta/scripts/checar_criativo.py" = "kit_trafego_ia/_ferramentas/checar_criativo.py"
+"ferramentas/checar-criativo-meta/referencias/termos.json" = "kit_trafego_ia/_ferramentas/termos.json"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/kit_trafego_ia",
+    "/ferramentas/subir-campanha-meta/skills/subidor-campanha/scripts/meta_subir.py",
+    "/ferramentas/subir-campanha-meta/skills/subidor-campanha/scripts/plano.exemplo.json",
+    "/ferramentas/checar-criativo-meta/scripts/checar_criativo.py",
+    "/ferramentas/checar-criativo-meta/referencias/termos.json",
+    "/testes/testar_mcp.py",
+    "/README.md",
+    "/LICENSE",
+]

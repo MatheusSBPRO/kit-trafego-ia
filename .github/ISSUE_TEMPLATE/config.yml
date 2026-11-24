@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Como contribuir
+    url: https://github.com/MatheusSBPRO/kit-trafego-ia/blob/main/CONTRIBUTING.md
+    about: Como rodar, como testar e o padrão de PR.
